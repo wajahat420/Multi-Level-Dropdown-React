@@ -107,58 +107,6 @@ loopNestedArrays(options);
 
 console.log({ arr })
 
-// copied
-// function loopNestedArrays(arrays, callback) {
-//     function loop(index, args) {
-//         if (index >= arrays.length) {
-//             // Base case: We've reached the innermost array, call the callback
-//             callback.apply(null, args);
-//             return;
-//         }
-//         const array = arrays[index];
-//         for (let i = 0; i < array.length; i++) {
-//             console.log("LOOP", args.concat(array[i]))
-//             // Recursively call loop with the next array and updated args
-//             loop(index + 1, args.concat(array[i]));
-//         }
-//     }
-//     loop(0, []);
-// }
-
-// const colors = [
-//     'green',
-//     'blue',
-//     'gray',
-//     'black',
-//     'brown',
-//     'pink',
-//     'red'
-// ]
-
-// function loopNestedArrays(arrays, callback) {
-//     function loop(array, index = '') {
-//         for (let i = 0; i < array.length; i++) {
-//             let myIndex = index.toString() + i
-//             if (typeof array[i] === 'object') {
-//                 loop(array[i], myIndex);
-//             } else {
-//                 console.log({ val: array[i], i, myIndex })
-//             }
-//         }
-//         return
-//     }
-//     loop(arrays);
-// }
-
-// const arrays = [
-//     [1, 2, [8, 9, [10, 11]]],
-//     [3, 4, [12, 13]],
-//     [5, 6],
-// ];
-
-// loopNestedArrays(arrays, (...values) => {
-//     console.log(values);
-// });
 
 
 function MultiLevelDropdown() {
@@ -185,10 +133,16 @@ function MultiLevelDropdown() {
                     <div className="arrow"></div>
                 </div>
                 <div className="custom-options">
-                    {/* <span className="custom-option selected" data-value="tesla">Tesla</span> */}
                     {
                         arr.map((elem, index) => (
-                            <span key={index} style={{marginLeft: getMargin(elem), opacity: elem.isEnd ? 1 : .5 }} className={`custom-option ${elem.isEnd ? 'enable' : 'disable'}`} data-value="volvo">{elem.label}</span>
+                            <span
+                                key={index}
+                                style={{ marginLeft: getMargin(elem), opacity: elem.isEnd ? 1 : .5 }}
+                                className={`custom-option ${elem.isEnd ? 'enable' : 'disable'}`}
+                                data-value={elem.value}
+                            >
+                                {elem.label}
+                            </span>
                         ))
                     }
                 </div>

@@ -1,4 +1,3 @@
-import './App.css';
 import SingleSelect from './milti-level-dropown';
 
 function App() {
