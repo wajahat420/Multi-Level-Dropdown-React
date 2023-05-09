@@ -40,7 +40,22 @@ const options = [
                             },
                             {
                                 label: "nested 2",
-                                value: 6
+                                options: [
+                                    {
+                                        label: "nested group 4b",
+                                        value: 4,
+                                        options: [
+                                            {
+                                                label: "nested 1",
+                                                value: 5
+                                            },
+                                            {
+                                                label: "nested 2",
+                                                value: 6
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -120,7 +135,7 @@ function MultiLevelDropdown() {
 
 
     const getMargin = (elem) => {
-        const val = (elem.level - 1) * 50
+        const val = (elem.level - 1) * 20
 
         return val + 'px'
     }
